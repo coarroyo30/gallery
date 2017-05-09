@@ -1,0 +1,72 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta http-equiv="last-modified" content="20016-10-29@14:55:00 PCT" />
+<link href="https://fonts.googleapis.com/css?family=Bowlby+One%7COpen+Sans:400,300,300italic,700,700italic" rel="stylesheet" type="text/css">
+<link rel="stylesheet" href="css/normalize.css">
+<link rel="stylesheet" href="css/main.css">
+<title>The Gallery</title>
+</head>
+
+<body>
+<div class="wrapper">  
+  <header class="header">
+    <div class="title">
+      <h1>Gallery</h1>
+    </div>
+    <div class="searchbox-container">
+      <form>
+        <div class="form-container">
+          <input type="text" id="searchbox" name="searchbox" placeholder="Search...">
+          <button id="reset" name="reset" title="Reset"></button>
+        </div>
+      </form>
+    </div>
+  </header>
+  <!--/header-->
+  <div id="gallery"></div>
+</div>
+<div id="response" class="response-style clearfix"> </div>
+<div id="loading" class="response-style clearfix"> </div>
+<!--/.gallery-->
+<footer class="footer">
+  <div id="copyright" class="copyright">&copy; The Gallery</div>
+  <div class="copyright">Refresh icon made by <a href="http://www.flaticon.com/authors/gregor-cresnar" title="Gregor Cresnar">Gregor Cresnar</a> from <a href="http://www.flaticon.com" title="Flaticon">www.flaticon.com</a> is licensed by <a href="http://creativecommons.org/licenses/by/3.0/" title="Creative Commons BY 3.0" target="_blank">CC 3.0 BY</a></div>
+</footer>
+<!--/footer--> 
+
+<div id="overlay"></div>
+<div id="arrow-right"></div>
+<div id="arrow-left"></div>
+
+<!-- SCRIPTS START HERE -->
+<script src="js/main.js"></script> 
+<script>
+//Preload Images
+function preloader() {
+	// Is there a method that can auto tally images in a folder? Revisit.
+	var imageFolder = ['link-icon-20x20.png','right-arrow36x63.png','close-icon.png','left-arrow36x63.png','01.jpg','02.jpg','03.jpg','04.jpg','05.jpg','06.jpg','07.jpg','08.jpg','09.jpg','10.jpg','11.jpg','12.jpg']; //For now, manually adding new images
+	for( var i = 0; i < imageFolder.length; i++){					
+		var img  = new Image();
+		img.src = "images/photos/" + imageFolder[i];	
+	}
+}
+function addLoadEvent(func) {
+	var oldonload = window.onload;
+	if (typeof window.onload != 'function') {
+		window.onload = func;
+	} else {
+		window.onload = function() {
+			if (oldonload) {
+				oldonload();
+			}
+			func();
+		}
+	}
+}
+addLoadEvent(preloader);
+</script>
+</body>
+</html>
